@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
        http://www.springframework.org/schema/beans/spring-beans-4.2.xsd 
        http://www.springframework.org/schema/context 
@@ -12,19 +14,19 @@
        http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd">
 
 	<!-- 配置反射自动扫描的包 -->
-	<context:component-scan base-package="com.kingflower.*" />
+	<context:component-scan
+		base-package="com.kingflower.*" />
 
 	<!-- 注册HandlerMapper、HandlerAdapter两个映射类 映射类和方法 -->
 	<mvc:annotation-driven />
-
-
 
 
 	<!-- 访问静态资源时，让请求通过 -->
 	<mvc:default-servlet-handler />
 	<mvc:resources location="/WEB-INF/resources/fonts/"
 		mapping="/fonts/**"></mvc:resources>
-	<mvc:resources location="/WEB-INF/resources/js/" mapping="/js/**"></mvc:resources>
+	<mvc:resources location="/WEB-INF/resources/js/"
+		mapping="/js/**"></mvc:resources>
 	<mvc:resources location="/WEB-INF/resources/css/"
 		mapping="/css/**"></mvc:resources>
 	<mvc:resources location="/WEB-INF/resources/img/"
@@ -40,19 +42,11 @@
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<!-- 前缀 -->
-		<property name="prefix" value="/WEB-INF/view/jsp"></property>
+		<property name="prefix" value="/WEB-INF/view"></property>
 		<!-- 后缀 -->
 		<property name="suffix" value=".jsp"></property>
 		<property name="order" value="2" />
 	</bean>
-	<!-- json支持,映射json为http消息转换器 -->
-    <bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
-        <property name="supportedMediaTypes">
-            <list>
-                <value>text/html;charset=UTF-8</value>
-            </list>
-        </property>
-    </bean>
 	<!-- FreeMarker视图解析器与属性配置 -->
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
@@ -61,7 +55,7 @@
 		<!--自动添加到路径中的前缀 -->
 		<property name="prefix" value="" />
 		<!--自动添加到路径中的后缀 -->
-		<property name="suffix" value=".html" />
+		<property name="suffix" value=".jsp" />
 		<!--指定视图渲染类 -->
 		<property name="viewClass"
 			value="org.springframework.web.servlet.view.freemarker.FreeMarkerView" />
@@ -127,7 +121,7 @@
 			<mvc:exclude-mapping path="/img/**" />
 
 			<!-- 定义拦截器使用的bean -->
-			<bean class="com.bwf.interceptor.LoginInterceptor"></bean>
+			<bean class="com.kingflower.interceptor.LoginInterceptor"></bean>
 		</mvc:interceptor>
 
 		<!-- 权限拦截器 -->
@@ -147,7 +141,7 @@
 			<mvc:exclude-mapping path="/js/**" />
 			<mvc:exclude-mapping path="/img/**" />
 
-			<bean class="com.bwf.interceptor.OperateInterceptor"></bean>
+			<bean class="com.kingflower.interceptor.OperateInterceptor"></bean>
 		</mvc:interceptor>
 	</mvc:interceptors>
 
