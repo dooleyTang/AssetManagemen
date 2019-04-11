@@ -8,8 +8,6 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>AssetManagement Maven Webapp</name>
 	<url>http://maven.apache.org</url>
-
-
 	<properties>
 		<!-- 统一源码的编码方式 -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
