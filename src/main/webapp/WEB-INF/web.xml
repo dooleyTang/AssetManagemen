@@ -15,7 +15,8 @@
 			<param-name>contextConfigLocation</param-name>
 			<param-value>classpath:spring-mvc.xml</param-value>
 		</init-param>
-
+		<!-- 服务器启动时创建 -->
+		<load-on-startup>1</load-on-startup>
 		<!--Servlet3.0以上文件上传配置 -->
 		<multipart-config>
 			<max-file-size>5242880</max-file-size><!--上传单个文件的最大限制5MB -->
@@ -23,12 +24,12 @@
 			<file-size-threshold>0</file-size-threshold><!--当文件的大小超过临界值时将写入磁盘 -->
 		</multipart-config>
 	</servlet>
-
+	<!-- 拦截路径需要配置为/而不是/*，/*拦截所有包括.jsp；而/拦截没有后缀的请求如：/findAll -->
 	<servlet-mapping>
 		<servlet-name>spring</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-
+	<!-- 编码过滤器 -->
 	<filter>
 		<filter-name>CharacterEncodingFilter</filter-name>
 		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>

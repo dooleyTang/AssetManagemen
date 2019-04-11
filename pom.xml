@@ -184,7 +184,7 @@
 				<version>2.2</version>
 				<configuration>
 					<path>/${project.artifactId}</path>
-					<url>http://localhost:8080/manager/text</url>
+					<url>http://localhost:8088/manager/text</url>
 					<server>tomcat9</server>
 					<username>admin</username>
 					<password>admin</password>

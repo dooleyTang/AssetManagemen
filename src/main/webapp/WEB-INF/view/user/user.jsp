@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="css/animate.min.css" />
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="<%=basePath%>../js/amazeui.min.js"></script>
+<script type="text/javascript" src="/AssetManagement/js/amazeui.min.js"></script>
 <script type="text/javascript" src="js/wow.js"></script>
 <link rel="stylesheet" href="css/global.css" />
 <link rel="stylesheet" href="<%=basePath%>../css/amazeui.min.css" />

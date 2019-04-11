@@ -1,53 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:tx="http://www.springframework.org/schema/tx"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans 
-       http://www.springframework.org/schema/beans/spring-beans-4.2.xsd 
-       http://www.springframework.org/schema/context 
-       http://www.springframework.org/schema/context/spring-context-4.1.xsd 
-       http://www.springframework.org/schema/tx 
-       http://www.springframework.org/schema/tx/spring-tx-4.1.xsd
-       http://www.springframework.org/schema/mvc
-       http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd">
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+    http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-4.1.xsd
+    http://www.springframework.org/schema/mvc
+    http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+    http://www.springframework.org/schema/tx
+    http://www.springframework.org/schema/tx/spring-tx-4.1.xsd">
 
-	<!-- 配置反射自动扫描的包 -->
+
+	<!-- 组件扫描 ,扫描组件（注解：@Controller、@Service、@Repository、@Componment）创建bean -->
 	<context:component-scan
-		base-package="com.kingflower.*" />
+		base-package="com.kingflower.*"/>
 
-	<!-- 注册HandlerMapper、HandlerAdapter两个映射类 映射类和方法 -->
-	<mvc:annotation-driven />
-
-
-	<!-- 访问静态资源时，让请求通过 -->
+	<!-- 处理器映射器、处理器适配器，注解驱动 -->
+	<mvc:annotation-driven></mvc:annotation-driven>
+		<!-- 访问静态资源时，让请求通过 -->
 	<mvc:default-servlet-handler />
 	<mvc:resources location="/WEB-INF/resources/fonts/"
 		mapping="/fonts/**"></mvc:resources>
-	<mvc:resources location="/WEB-INF/resources/js/"
-		mapping="/js/**"></mvc:resources>
+	<mvc:resources location="/WEB-INF/resources/js/" mapping="/js/**"></mvc:resources>
 	<mvc:resources location="/WEB-INF/resources/css/"
 		mapping="/css/**"></mvc:resources>
 	<mvc:resources location="/WEB-INF/resources/img/"
 		mapping="/img/**"></mvc:resources>
-
+	
 
 	<!--文件上传解析器 -->
 	<bean id="multipartResolver"
 		class="org.springframework.web.multipart.support.StandardServletMultipartResolver">
 	</bean>
-
 	<!-- 视图解析器 -->
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<!-- 前缀 -->
-		<property name="prefix" value="/WEB-INF/view"></property>
+		<property name="prefix" value="/WEB-INF/view/" />
 		<!-- 后缀 -->
-		<property name="suffix" value=".jsp"></property>
-		<property name="order" value="2" />
+		<property name="suffix" value=".jsp" />
 	</bean>
-	<!-- FreeMarker视图解析器与属性配置 -->
+<!-- FreeMarker视图解析器与属性配置 -->
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
 		<!--是否启用缓存 -->
@@ -55,7 +53,7 @@
 		<!--自动添加到路径中的前缀 -->
 		<property name="prefix" value="" />
 		<!--自动添加到路径中的后缀 -->
-		<property name="suffix" value=".jsp" />
+		<property name="suffix" value=".html" />
 		<!--指定视图渲染类 -->
 		<property name="viewClass"
 			value="org.springframework.web.servlet.view.freemarker.FreeMarkerView" />
@@ -144,7 +142,6 @@
 			<bean class="com.kingflower.interceptor.OperateInterceptor"></bean>
 		</mvc:interceptor>
 	</mvc:interceptors>
-
-
-
+	<!-- 开启默认servlet：处理静态资源，以便静态资源不被dispatcherServlet当成Handler（处理器）拦截报404 ，此servlet的name为default -->
+	<mvc:default-servlet-handler />
 </beans>
