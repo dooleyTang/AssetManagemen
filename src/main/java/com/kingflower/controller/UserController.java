@@ -19,4 +19,9 @@ public class UserController {
 		return "user/user";
 	}
 	
+	@GetMapping("/dologin")
+	public String dologin() {
+		return "user/login";
+	}
+	
 }

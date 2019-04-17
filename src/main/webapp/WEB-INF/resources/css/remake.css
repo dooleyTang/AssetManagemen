@@ -1,0 +1,112 @@
+/* 当前CSS文件内容用于改造插件的样式 */
+
+/*======================改造提示框======================>>>>>>>>>>>>  */
+.lobibox-notify {
+    box-shadow: 0px 0px 0px #000;
+    border-radius: 3px;
+}
+
+.lobibox-notify.lobibox-notify-error:hover {
+    border-color: #CA2120;
+    box-shadow: 0px 0px 10px #CA2120 !important;
+}
+
+.lobibox-notify.lobibox-notify-success:hover {
+    border-color: #29b87e;
+    box-shadow: 0px 0px 10px #29b87e !important;
+}
+
+.lobibox-notify.lobibox-notify-warning:hover {
+    border-color: #ce812e;
+    box-shadow: 0px 0px 10px #ce812e !important;
+}
+
+.lobibox-notify.lobibox-notify-info:hover {
+    border-color: #2e79b4;
+    box-shadow: 0px 0px 10px #2e79b4 !important;
+}
+
+.lobibox.lobibox-confirm .lobibox-header {
+    background-color: #00aeff;
+}
+
+.lobibox.lobibox-confirm .lobibox-body .lobibox-icon {
+    color: #00aeff;
+}
+
+.lobibox.lobibox-confirm .lobibox-footer {
+    background-color: rgba(255, 255, 255, .98);
+    border-top: 1px solid #eee;
+}
+
+/*======================改造BootStrapTable======================>>>>>>>>>>>>  */
+.fixed-table-container {
+    border: none !important;
+}
+
+/*======================改造AdminLTE的模态框的圆角======================>>>>>>>>>>>>  */
+.modal-content {
+    border-radius: 5px;
+}
+
+.modal-header {
+    padding: 10px 15px;
+}
+
+.modal-footer {
+    padding: 10px 15px;
+}
+
+/*===============================form-inline 元素顺序排列======================================*/
+.form-inline {
+
+}
+
+.form-inline  .form-group {
+    margin-right: 15px;
+}
+
+.form-inline .form-control {
+
+}
+
+.form-inline .control-label {
+    margin-right: 5px;
+    color: #444;
+}
+
+.datetimepicker td.day {
+	padding: 0px;
+} 
+.datetimepicker table tr td.day.active {
+	background-color: #00a65a;
+} 
+
+/*===============================list-group-item======================================*/
+.list-group-item.active {
+    background-color: #00a65a !important;
+    border-color: #00a65a !important;
+}
+
+.list-group-item-hover {
+    border-left-width: 2px;
+    border-color: transparent;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.list-group-item-hover:hover {
+    border-left: 2px solid #00aeff;
+}
+
+.pagination > .active > a {
+    background-color: #00aeff;
+    border-color: #00aeff;
+}
+
+.pagination > .active > a:hover,
+.pagination > .active > a:focus,
+.pagination > .active > a:active {
+    background-color: #00aeff;
+    border-color: #00aeff;
+}
