@@ -59,7 +59,8 @@
 
 			<!-- 不拦截的请求 -->
 			<mvc:exclude-mapping path="/user/login" />
-			<mvc:exclude-mapping path="/user/doLogin" />
+			<mvc:exclude-mapping path="/user/temp" />
+			<mvc:exclude-mapping path="/user/**" />
 			<mvc:exclude-mapping path="/fontas/**" />
 			<mvc:exclude-mapping path="/css/**" />
 			<mvc:exclude-mapping path="/js/**" />
@@ -77,7 +78,7 @@
 			<mvc:mapping path="/*/*" />
 			<mvc:exclude-mapping path="/user/login" />
 			<mvc:exclude-mapping path="/user/logout" />
-			<mvc:exclude-mapping path="/user/doLogin" />
+			<mvc:exclude-mapping path="/user/**" />
 			<mvc:exclude-mapping path="/home" />
 			<mvc:exclude-mapping path="/error" />
 			<mvc:exclude-mapping path="/error/**" />
